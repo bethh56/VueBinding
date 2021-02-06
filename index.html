@@ -35,9 +35,11 @@
       <button v-on:click="subtract5(5)">Subtract 5</button>
       <p v-once>Starting Counter: {{ counterOfFive }}</p>
       <p>Result: {{ counterOfFive }}</p>
-      <!-- keyup.enter modifier will update field when user presses enter, can use any keyboard button like so --> 
-      <input type="text" v-on:input="setName($event, 'Nielsen')" v-on:keyup.enter="confirmInput">
-      <p> Your Name: {{ confirmedName }}</p>
+
+<!-- keyup.enter modifier will update field when user presses enter, can use any keyboard button like so --> 
+      <input type="text" v-model="name">
+      <button v-on:click="resetInput">Reset Input</button>
+      <p> Your Name: {{ fullname }}</p>
 <!--       
     <form v-on:submit="submitForm">
         <input type="text">
@@ -52,3 +54,5 @@
     </section>
   </body>
 </html>
+
+

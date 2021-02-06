@@ -9,6 +9,15 @@ var app = new Vue({
     };
   },
 
+  computed: {
+    fullname() {
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Nielsen';
+    }
+  },
+
   methods: {
     add() {
       this.counter++
@@ -22,18 +31,18 @@ var app = new Vue({
     subtract5(num) {
       this.counterOfFive = this.counterOfFive - num;
     },
-    setName(e, lastName) {
-      this.name = e.target.value + ' ' + lastName;
+    // here //
+    setName(e) {
+      this.name = e.target.value;
     },
-    // submitForm(e) {
-    //   e.preventDefault();
-    //   alert('Submitted!')
-    // }
     submitForm() {
       alert('Submitted!')
     },
     confirmInput() {
       this.confirmedName = this.name;
+    },
+    resetInput() {
+      this.name = '';
     }
   }
 });
