@@ -6,15 +6,43 @@ var app = new Vue({
       counterOfFive: 0,
       name: '',
       confirmedName: '',
+      lastName: '',
+      // fullname: '',
     };
   },
 
+   watch: {
+    counterOfFive(value) {
+       if (value > 50) {
+         const that = this;
+         setTimeout(function () {
+           that.counterOfFive = 0;
+         }, 2000);
+       }
+     },
+  //   // whenever name property changes, will update
+  //   name(value) {
+  //     if(value === '') {
+  //       this.fullname = '';
+  //     } else {
+  //       this.fullname = value + ' ' + this.lastName;
+  //     }
+  //   },
+  //   lastName(value) {
+  //     if(value === '') {
+  //       this.fullname = '';
+  //     } else {
+  //       this.fullname = this.name + ' ' + value;
+  //     }
+  //   }
+   },
+
   computed: {
     fullname() {
-      if (this.name === '') {
+      if (this.name === '' || this.lastName === '') {
         return '';
       }
-      return this.name + ' ' + 'Nielsen';
+      return this.name + ' ' + this.lastName;
     }
   },
 
